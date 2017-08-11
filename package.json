@@ -1,0 +1,8 @@
+{
+  "name": "mine",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://git.elenet.me/fe-fin/mine",
+  "author": "fe.base@ele.me",
+  "license": "MIT"
+}
