@@ -16,9 +16,18 @@ const commonConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Mine',
+      template: 'index.html',
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
+    ],
+  },
 }
 
 const developmentConfig = () => {
