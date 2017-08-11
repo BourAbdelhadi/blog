@@ -9,13 +9,11 @@ const PATHS = {
 }
 
 const env = process.env.NODE_ENV
+const isProd = env === 'production'
 
 const commonConfig = {
   entry: {
-    app: env === 'production'
-      ? PATHS.app
-      : ['react-hot-loader/patch', PATHS.app],
-    
+    app: isProd ? PATHS.app : ['react-hot-loader/patch', PATHS.app],
   },
   output: {
     path: PATHS.dist,
@@ -39,6 +37,7 @@ const commonConfig = {
 
 const developmentConfig = {
   devServer: {
+    open: true,
     historyApiFallback: true,
 
     // Display only errors to reduce the amount of output.
@@ -47,6 +46,7 @@ const developmentConfig = {
     // 0.0.0.0 is available to all network devices
     host: process.env.HOST, // Defaults to `localhost`
     port: process.env.PORT, // Defaults to 8080
+
     hotOnly: true,
   },
   plugins: [
@@ -59,5 +59,5 @@ const productionConfig = {}
 
 module.exports = merge(
   commonConfig,
-  env === 'production' ? productionConfig : developmentConfig
+  isProd ? productionConfig : developmentConfig
 )
