@@ -1,14 +1,21 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
-};
+}
+
+const env = process.env.NODE_ENV
 
 const commonConfig = {
   entry: {
-    app: PATHS.app,
+    app: env === 'production'
+      ? PATHS.app
+      : ['react-hot-loader/patch', PATHS.app],
+    
   },
   output: {
     path: PATHS.dist,
@@ -30,33 +37,27 @@ const commonConfig = {
   },
 }
 
-const developmentConfig = () => {
-  const config = {
-    devServer: {
-      historyApiFallback: true,
+const developmentConfig = {
+  devServer: {
+    historyApiFallback: true,
 
-      // Display only errors to reduce the amount of output.
-      stats: 'errors-only',
+    // Display only errors to reduce the amount of output.
+    stats: 'errors-only',
 
-      // 0.0.0.0 is available to all network devices
-      host: process.env.HOST, // Defaults to `localhost`
-      port: process.env.PORT, // Defaults to 8080
-    },
-  }
-
-  return Object.assign(
-    {},
-    commonConfig,
-    config
-  )
+    // 0.0.0.0 is available to all network devices
+    host: process.env.HOST, // Defaults to `localhost`
+    port: process.env.PORT, // Defaults to 8080
+    hotOnly: true,
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+  ],
 }
 
-const productionConfig = () => commonConfig
+const productionConfig = {}
 
-module.exports = (env) => {
-  if (env === 'production') {
-    return productionConfig()
-  }
-
-  return developmentConfig()
-}
+module.exports = merge(
+  commonConfig,
+  env === 'production' ? productionConfig : developmentConfig
+)
