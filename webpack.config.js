@@ -33,6 +33,11 @@ const commonConfig = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      '@': PATHS.app,
+    },
+  },
 }
 
 const developmentConfig = {
