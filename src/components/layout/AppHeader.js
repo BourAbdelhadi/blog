@@ -19,7 +19,7 @@ const NavItem = styled(Link)`
 
 const navs = [
   { path: '/', text: '首页' },
-  { path: '/workflow', text: '开发流程规范' },
+  { path: '/guideline', text: '开发流程规范' },
   { path: '/about', text: '关于' },
 ]
 

@@ -5,6 +5,8 @@
     }],
     "react"
   ],
+  "plugins": ["preval"],
+
   "env": {
     "development": {
       "plugins": [

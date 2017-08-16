@@ -1,13 +1,13 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import WorkFlow from '@/pages/WorkFlow'
+import Guideline from '@/pages/Guideline'
 import Home from '@/pages/Home'
 import NotFound from '@/pages/NotFound'
 
 const routes = [
   { path: '/', component: Home, exact: true },
-  { path: '/workflow', component: WorkFlow },
+  { path: '/guideline', component: Guideline },
   { component: NotFound },
 ]
 
