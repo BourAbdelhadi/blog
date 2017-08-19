@@ -1,7 +1,8 @@
 import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 import { normalize } from 'polished'
 
+import theme from '@/styled/theme'
 import AppHeader from '@/components/layout/AppHeader'
 import AppMain from '@/components//layout/AppMain'
 import AppFooter from '@/components//layout/AppFooter'
@@ -13,6 +14,9 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  color: ${props => props.theme.color.base};
+  background: ${props => props.theme.color.bg};
+  font-family: ${props => props.theme.font.familySans};
 
   > :nth-child(2) {
     flex: 1;
@@ -20,10 +24,12 @@ const Container = styled.div`
 `
 export default function App() {
   return (
-    <Container>
-      <AppHeader />
-      <AppMain />
-      <AppFooter />
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <AppHeader />
+        <AppMain />
+        <AppFooter />
+      </Container>
+    </ThemeProvider>
   )
 }

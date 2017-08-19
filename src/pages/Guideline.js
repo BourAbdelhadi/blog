@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import styled from 'styled-components'
+import { Flex, Box } from 'grid-styled'
 
 import { guideline } from '../utils/getContent'
 import SidebarNav from '@/components/SidebarNav'
@@ -13,9 +15,9 @@ export default function Guideline({ match } = {}) {
   }))
 
   return (
-    <div>
+    <Flex>
       <SidebarNav sidebar={sidebar} />
-      <div>
+      <Box flex="1 1 auto">
         {sidebar.map((item, i) =>
           <Route
             key={i}
@@ -23,7 +25,7 @@ export default function Guideline({ match } = {}) {
             render={() => <Md2React content={item.content} />}
           />
         )}
-      </div>
-    </div>
+      </Box>
+    </Flex>
   )
 }

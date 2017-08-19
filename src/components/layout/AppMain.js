@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import styled from 'styled-components'
 
 import Guideline from '@/pages/Guideline'
 import Home from '@/pages/Home'
@@ -11,12 +12,20 @@ const routes = [
   { component: NotFound },
 ]
 
+const Main = styled.main`
+  display: flex;
+
+  > * {
+    flex: 1;
+  }
+`
+
 export default function AppMain() {
   return (
-    <main>
+    <Main>
       <Switch>
         {routes.map((route, i) => <Route key={i} {...route} />)}
       </Switch>
-    </main>
+    </Main>
   )
 }

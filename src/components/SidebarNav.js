@@ -1,16 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+import { activeNavClassName, NavItem } from '@/styled/NavItem'
+
+const Aside = styled.aside`
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  // border-right: 1px solid ${props => props.theme.color.border};
+  background: ${props => props.theme.color.bgDark};
+`
 
 export default function SidebarNav(props) {
   return (
-    <aside>
+    <Aside>
       {props.sidebar.map((item, i) =>
-        <Link key={i} to={item.path}>
+        <NavItem
+          exact={true}
+          key={i}
+          to={item.path}
+          activeClassName={activeNavClassName}>
           {item.text}
-        </Link>
+        </NavItem>
       )}
-    </aside>
+    </Aside>
   )
 }
 

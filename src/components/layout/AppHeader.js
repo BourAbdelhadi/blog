@@ -1,22 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { activeNavClassName, NavItem } from '@/styled/NavItem'
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: flex-end;
-  margin: 10px;
+  justify-content: center;
+  background: ${props => props.theme.color.bgDark};
+  padding: 10px;
 `
-
-const NavItem = styled(Link)`
-  text-decoration: none;
-  text-transform: capitalize;
-
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
-`
-
 const navs = [
   { path: '/', text: '首页' },
   { path: '/guideline', text: '开发流程规范' },
@@ -28,7 +19,11 @@ export default function AppHeader() {
     <Nav>
       {navs.map((nav, i) => {
         return (
-          <NavItem key={i} to={nav.path}>
+          <NavItem
+            key={i}
+            to={nav.path}
+            exact={true}
+            activeClassName={activeNavClassName}>
             {nav.text}
           </NavItem>
         )
