@@ -5,7 +5,6 @@ import { normalize } from 'polished'
 import theme from '@/styled/theme'
 import AppHeader from '@/components/layout/AppHeader'
 import AppMain from '@/components//layout/AppMain'
-import AppFooter from '@/components//layout/AppFooter'
 
 injectGlobal`${normalize()}`
 
@@ -15,20 +14,19 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   color: ${props => props.theme.color.base};
-  background: ${props => props.theme.color.bg};
   font-family: ${props => props.theme.font.familySans};
 
-  > :nth-child(2) {
+  > :nth-child(1) {
     flex: 1;
+    position: relative;
   }
 `
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <AppHeader />
         <AppMain />
-        <AppFooter />
+        <AppHeader />
       </Container>
     </ThemeProvider>
   )

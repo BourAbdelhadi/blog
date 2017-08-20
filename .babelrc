@@ -5,7 +5,10 @@
     }],
     "react"
   ],
-  "plugins": ["preval"],
+  "plugins": [
+    "preval",
+    "transform-object-rest-spread"
+  ],
 
   "env": {
     "development": {

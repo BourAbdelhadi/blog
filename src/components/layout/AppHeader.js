@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Flex } from 'grid-styled'
+
 import { activeNavClassName, NavItem } from '@/styled/NavItem'
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: center;
-  background: ${props => props.theme.color.bgDark};
-  padding: 10px;
+const Nav = styled(Flex)`
+  padding: 20px 10px;
 `
+
 const navs = [
   { path: '/', text: '首页' },
   { path: '/guideline', text: '开发流程规范' },
@@ -16,7 +16,7 @@ const navs = [
 
 export default function AppHeader() {
   return (
-    <Nav>
+    <Nav justify="space-around">
       {navs.map((nav, i) => {
         return (
           <NavItem

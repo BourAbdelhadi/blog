@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Flex, Box } from 'grid-styled'
 
 import { guideline } from '../utils/getContent'
-import SidebarNav from '@/components/SidebarNav'
+import BurgerNav from '@/components/BurgerNav'
 import Md2React from '@/components/Md2React'
 
 export default function Guideline({ match } = {}) {
@@ -16,7 +16,7 @@ export default function Guideline({ match } = {}) {
 
   return (
     <Flex>
-      <SidebarNav sidebar={sidebar} />
+      <BurgerNav sidebar={sidebar} />
       <Box flex="1 1 auto">
         {sidebar.map((item, i) =>
           <Route

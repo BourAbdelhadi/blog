@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const PATHS = {
   app: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
+  assets: path.join(__dirname, 'src/assets'),
 }
 
 const env = process.env.NODE_ENV
@@ -31,18 +32,34 @@ const commonConfig = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      // {
+      //   test: /\.(jpg|png|svg)$/,
+      //   loader: 'url-loader',
+      //   options: {
+      //     limit: 10,
+      //   },
+      // },
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]',
+        },
+      },
     ],
   },
   resolve: {
     alias: {
       '@': PATHS.app,
+      assets: PATHS.assets,
     },
+    modules: [PATHS.assets, 'node_modules'],
   },
 }
 
 const developmentConfig = {
   devServer: {
-    open: true,
+    // open: true,
     historyApiFallback: true,
 
     // Display only errors to reduce the amount of output.

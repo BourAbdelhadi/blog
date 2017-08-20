@@ -1,10 +1,10 @@
 const theme = {
   color: {
-    base: '#333',
+    base: '#000',
     baseLight: '#6c6c6c',
     baseDark: '#232324',
 
-    bg: '#fafafa',
+    bg: '#fff',
     bgDark: 'rgb(234, 234, 235)',
 
     border: '#ddd',
