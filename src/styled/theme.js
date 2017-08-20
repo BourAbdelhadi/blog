@@ -5,7 +5,7 @@ const theme = {
     baseDark: '#232324',
 
     bg: '#fff',
-    bgDark: 'rgb(234, 234, 235)',
+    bgDark: '#fbfbfb',
 
     border: '#ddd',
   },

@@ -12,13 +12,7 @@ const routes = [
   { component: NotFound },
 ]
 
-const Main = styled.main`
-  display: flex;
-
-  > * {
-    flex: 1;
-  }
-`
+const Main = styled.main``
 
 export default function AppMain() {
   return (

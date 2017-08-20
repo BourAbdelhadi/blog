@@ -34,7 +34,7 @@ const NavList = styled(Flex)`
   padding-top: 30px;
   position: relative;
   transition: all .5s ease-in-out;
-  min-width: 120px;
+  min-width: 160px;
   display: none;
 
   ${Aside}[data-toggle=true] & {
@@ -63,7 +63,12 @@ const Overlay = styled.div`
   }
 `
 
-const Aside = styled(Flex)``
+const Aside = styled(Flex)`
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // height: 100%;
+`
 
 export default class BurgerNav extends React.Component {
   constructor(props) {

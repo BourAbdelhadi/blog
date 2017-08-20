@@ -1,11 +1,15 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
-import styled from 'styled-components'
+import { Route, Redirect } from 'react-router-dom'
 import { Flex, Box } from 'grid-styled'
+import styled from 'styled-components'
 
 import { guideline } from '../utils/getContent'
 import BurgerNav from '@/components/BurgerNav'
 import Md2React from '@/components/Md2React'
+
+const Article = styled(Box)`
+  min-width: 0; /* famous min-width problem */
+`
 
 export default function Guideline({ match } = {}) {
   const sidebar = guideline.map(item => ({
@@ -17,7 +21,9 @@ export default function Guideline({ match } = {}) {
   return (
     <Flex>
       <BurgerNav sidebar={sidebar} />
-      <Box flex="1 1 auto">
+
+      <Article flex="1">
+        <Redirect from={match.url} to={sidebar[0].path} />
         {sidebar.map((item, i) =>
           <Route
             key={i}
@@ -25,7 +31,7 @@ export default function Guideline({ match } = {}) {
             render={() => <Md2React content={item.content} />}
           />
         )}
-      </Box>
+      </Article>
     </Flex>
   )
 }

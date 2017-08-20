@@ -5,7 +5,12 @@ import { Flex } from 'grid-styled'
 import { activeNavClassName, NavItem } from '@/styled/NavItem'
 
 const Nav = styled(Flex)`
-  padding: 20px 10px;
+  padding: 16px 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1024;
+  background: ${props => props.theme.color.bgDark};
 `
 
 const navs = [
