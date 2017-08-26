@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
 
-import { guideline } from '../utils/getContent'
+// import { guideline } from '../utils/getContent'
 import BurgerNav from '@/components/BurgerNav'
 import Md2React from '@/components/Md2React'
 
@@ -12,6 +12,7 @@ const Article = styled(Box)`
 `
 
 export default function Guideline({ match } = {}) {
+  const guideline = []
   const sidebar = guideline.map(item => ({
     path: `${match.url}/${item.name}`,
     text: item.name,

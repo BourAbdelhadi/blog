@@ -3,7 +3,6 @@ import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 import { normalize } from 'polished'
 
 import theme from '@/styled/theme'
-import AppHeader from '@/components/layout/AppHeader'
 import AppMain from '@/components//layout/AppMain'
 
 injectGlobal`${normalize()}`
@@ -22,8 +21,8 @@ const Container = styled.div`
   font-family: ${props => props.theme.font.familySans};
 
   > :nth-child(1) {
-    overflow-y: scroll;
-    height: 100%;
+    // overflow-y: scroll;
+    // height: 100%;
   }
 `
 export default function App() {
@@ -31,7 +30,6 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Container>
         <AppMain />
-        <AppHeader />
       </Container>
     </ThemeProvider>
   )

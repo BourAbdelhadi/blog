@@ -11,8 +11,10 @@ module.exports = {
     "prettier",
     "prettier/react"
   ],
+  parser: "babel-eslint",
   parserOptions: {
-    sourceType: "module"
+    sourceType: "module",
+    allowImportExportEverywhere: true
   },
   plugins: ["react", "prettier"],
   rules: {
