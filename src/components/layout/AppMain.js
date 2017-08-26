@@ -10,6 +10,7 @@ const routes = pages.map(page => {
   const isIndex = page.path.toLowerCase() === '/index'
   return {
     path: isIndex ? '/' : page.path,
+    exact: isIndex,
     component: Loadable({
       loader: () => import(`@/pages${page.path}`),
       loading: function loading() {

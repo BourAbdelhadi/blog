@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom'
 import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
 
-// import { guideline } from '../utils/getContent'
 import BurgerNav from '@/components/BurgerNav'
 import Md2React from '@/components/Md2React'
 
@@ -19,20 +18,21 @@ export default function Guideline({ match } = {}) {
     content: item.content,
   }))
 
-  return (
-    <Flex>
-      <BurgerNav sidebar={sidebar} />
+  return <div>Guideline</div>
+  // return (
+  //   <Flex>
+  //     <BurgerNav sidebar={sidebar} />
 
-      <Article flex="1">
-        <Redirect from={match.url} to={sidebar[0].path} />
-        {sidebar.map((item, i) =>
-          <Route
-            key={i}
-            path={item.path}
-            render={() => <Md2React content={item.content} />}
-          />
-        )}
-      </Article>
-    </Flex>
-  )
+  //     <Article flex="1">
+  //       <Redirect from={match.url} to={sidebar[0].path} />
+  //       {sidebar.map((item, i) =>
+  //         <Route
+  //           key={i}
+  //           path={item.path}
+  //           render={() => <Md2React content={item.content} />}
+  //         />
+  //       )}
+  //     </Article>
+  //   </Flex>
+  // )
 }

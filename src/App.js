@@ -3,7 +3,8 @@ import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 import { normalize } from 'polished'
 
 import theme from '@/styled/theme'
-import AppMain from '@/components//layout/AppMain'
+import AppMain from '@/components/layout/AppMain'
+import AppNavs from '@/components/layout/AppNavs'
 
 injectGlobal`${normalize()}`
 injectGlobal`
@@ -29,6 +30,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
+        <AppNavs />
         <AppMain />
       </Container>
     </ThemeProvider>

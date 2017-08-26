@@ -2,6 +2,7 @@
 const path = require('path')
 const fs = require('fs')
 const { readdirSync, readFileSync } = require('fs')
+const fm = require('front-matter')
 
 const resolve = name => path.join(__dirname, name)
 
@@ -27,11 +28,12 @@ function getPosts(part) {
   return readdirSync(postPath).map(file => {
     const { name } = path.parse(file)
     const filePath = path.join(postPath, file)
-    const post = readFileSync(filePath, 'utf-8')
+    const { attributes, body } = fm(readFileSync(filePath, 'utf-8'))
 
     return {
       path: `/${part}/${name}`,
-      post,
+      ...attributes,
+      body,
     }
   })
 }

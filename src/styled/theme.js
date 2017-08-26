@@ -1,13 +1,13 @@
 const theme = {
   color: {
     base: '#000',
-    baseLight: '#6c6c6c',
+    baseLight: '#e3e3e3',
     baseDark: '#232324',
 
     bg: '#fff',
     bgDark: '#fbfbfb',
 
-    border: '#ddd',
+    active: '#E5637C',
   },
   font: {
     familySans:
