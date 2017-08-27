@@ -8,7 +8,7 @@ export const NavItem = styled(NavLink)`
   text-transform: capitalize;
   padding: 12px 20px;
   color: ${props => props.theme.color.base};
-  border-bottom: 1px solid ${props => props.theme.color.baseLight};
+  border-bottom: 1px solid ${props => props.theme.color.border};
 
   &.${activeNavClassName} {
     color: ${props => props.theme.color.active};

@@ -19,6 +19,11 @@ const BurberIcon = styled.img`
 `
 const Title = styled.span`margin-left: 10px;`
 
+const Header = styled(Flex)`
+  background: ${props => props.theme.color.bgDark};
+  padding: ${props => props.theme.gutterLarge} ${props => props.theme.gutter};
+`
+
 const CloseBtn = styled.img`
   width: 16px;
   height: 16px;
@@ -83,7 +88,7 @@ export default class BurgerNav extends React.Component {
 
     return (
       <Aside direction="column" data-toggle={this.state.isToggleOn}>
-        <Flex align="center" p={10}>
+        <Header align="center">
           <BurberIcon
             src={hamburgerIcon}
             alt="菜单"
@@ -92,7 +97,7 @@ export default class BurgerNav extends React.Component {
           <Title>
             {matchedRoute ? matchedRoute.text : ''}
           </Title>
-        </Flex>
+        </Header>
 
         <Overlay onClick={() => this.toggle()} />
 
