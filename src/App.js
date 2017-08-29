@@ -4,7 +4,6 @@ import { normalize } from 'polished'
 
 import theme from '@/styled/theme'
 import AppMain from '@/components/layout/appMain'
-import AppNavs from '@/components/layout/appNavs'
 
 injectGlobal`${normalize()}`
 injectGlobal`
@@ -30,7 +29,6 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <AppNavs />
         <AppMain />
       </Container>
     </ThemeProvider>

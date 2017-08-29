@@ -1,9 +1,7 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
-import { Flex, Box } from 'grid-styled'
-import styled from 'styled-components'
 import propTypes from 'prop-types'
 
+import AppNavs from '@/components/layout/appNavs'
 import PostEntry from '@/components/postEntry'
 
 export default function Guideline({ page }) {
@@ -11,6 +9,7 @@ export default function Guideline({ page }) {
 
   return (
     <div>
+      <AppNavs />
       {posts.map((post, i) => <PostEntry key={i} post={post} />)}
     </div>
   )
