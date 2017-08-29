@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
@@ -11,6 +12,7 @@ const PATHS = {
 
 const env = process.env.NODE_ENV
 const isProd = env === 'production'
+const isReport = process.env.npm_config_report
 
 const commonConfig = {
   entry: {
@@ -82,9 +84,15 @@ const developmentConfig = {
   ],
 }
 
-const productionConfig = {}
+const productionConfig = function() {
+  const plugins = [isReport && new BundleAnalyzerPlugin()].filter(p => p)
+
+  return {
+    plugins,
+  }
+}
 
 module.exports = merge(
   commonConfig,
-  isProd ? productionConfig : developmentConfig
+  isProd ? productionConfig() : developmentConfig
 )

@@ -6,7 +6,7 @@
   "author": "fe.base@ele.me",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server",
+    "dev": "NODE_ENV=development webpack-dev-server",
     "build": "NODE_ENV=production webpack",
     "test": "jest",
     "coverage": "jest --coverage",
@@ -51,6 +51,7 @@
     "react-test-renderer": "^15.6.1",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.3",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.7.1",
     "webpack-merge": "^4.1.0"
   },
