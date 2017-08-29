@@ -15,17 +15,3 @@ export const createPage = function createRoute(page) {
     page,
   }
 }
-
-// export const createPost = function createPost(page) {
-//   return {
-//     path: page.path + '/:id',
-//     posts: page.posts,
-//     exact: false,
-//     component: Loadable({
-//       loader: () => import('@/components/Post'),
-//       loading: function loading() {
-//         return <h1>loading</h1>
-//       },
-//     }),
-//   }
-// }

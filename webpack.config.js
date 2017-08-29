@@ -33,6 +33,10 @@ const commonConfig = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.md$/,
+        use: 'raw-loader',
+      },
       // {
       //   test: /\.(jpg|png|svg)$/,
       //   loader: 'url-loader',
