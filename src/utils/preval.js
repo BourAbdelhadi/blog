@@ -27,12 +27,11 @@ function getPosts(part) {
 
   return readdirSync(postPath).map(file => {
     const filePath = path.join(postPath, file)
-    const { attributes, body } = fm(readFileSync(filePath, 'utf-8'))
+    const { attributes } = fm(readFileSync(filePath, 'utf-8'))
 
     return {
       path: `/${part}/${file}`,
       ...attributes,
-      body,
     }
   })
 }

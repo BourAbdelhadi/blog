@@ -2,12 +2,25 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Loadable from 'react-loadable'
 
 import { pages } from '../../utils/preval'
-import { createPage } from '@/utils/route'
 import NotFound from '@/pages/404'
 
-const routes = pages.map(createPage)
+const routes = pages.map(function createRoute(page) {
+  const isIndex = page.path === '/index'
+  return {
+    path: isIndex ? '/' : page.path,
+    exact: true,
+    component: Loadable({
+      loader: () => import(`@/pages${page.path}`),
+      loading: function loading() {
+        return <h1>loading</h1>
+      },
+    }),
+    page,
+  }
+})
 
 const RouteWrapper = ({ component: Component, ...rest }) =>
   <Route
