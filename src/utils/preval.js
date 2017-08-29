@@ -16,7 +16,7 @@ exports.pages = readdirSync(PATHS.pages).map(file => {
   return {
     path: '/' + name,
     title: name,
-    posts: getPosts(name.toLowerCase()),
+    posts: getPosts(name),
   }
 })
 

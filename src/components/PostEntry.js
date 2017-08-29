@@ -27,7 +27,7 @@ const Entry = styled(Link)`
 
 export default function PostEntry({ post }) {
   return (
-    <Entry to={post.path}>
+    <Entry to={`/post?path=${post.path}`}>
       <Title>
         {post.title}
       </Title>

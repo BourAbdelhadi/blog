@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './App'
+import App from './app'
 
 const render = App => {
   ReactDOM.render(
@@ -19,5 +19,5 @@ const render = App => {
 render(App)
 
 if (module.hot) {
-  module.hot.accept('./App', () => render(App))
+  module.hot.accept('./app', () => render(App))
 }

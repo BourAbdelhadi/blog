@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'grid-styled'
 
-import { activeNavClassName, NavItem } from '@/styled/NavItem'
+import { activeNavClassName, NavItem } from '@/styled/navItem'
 import hamburgerIcon from '@/assets/images/hamburger.svg'
 import closeIcon from '@/assets/images/close.svg'
 

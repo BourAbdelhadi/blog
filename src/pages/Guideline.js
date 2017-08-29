@@ -4,7 +4,7 @@ import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
 import propTypes from 'prop-types'
 
-import PostEntry from '@/components/PostEntry'
+import PostEntry from '@/components/postEntry'
 
 export default function Guideline({ page }) {
   const { posts } = page

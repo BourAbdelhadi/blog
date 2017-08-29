@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 
-import BurgerNav from '@/components/BurgerNav'
+import BurgerNav from '@/components/burgerNav'
 
 const navs = [
   { path: '/', text: '首页' },

@@ -2,9 +2,9 @@ import React from 'react'
 import Loadable from 'react-loadable'
 
 export const createPage = function createRoute(page) {
-  const isIndex = page.path.toLowerCase() === '/index'
+  const isIndex = page.path === '/index'
   return {
-    path: isIndex ? '/' : page.path.toLowerCase(),
+    path: isIndex ? '/' : page.path,
     exact: true,
     component: Loadable({
       loader: () => import(`@/pages${page.path}`),
@@ -16,16 +16,16 @@ export const createPage = function createRoute(page) {
   }
 }
 
-export const createPost = function createPost(page) {
-  return {
-    path: page.path + '/:id',
-    posts: page.posts,
-    exact: false,
-    component: Loadable({
-      loader: () => import('@/components/Post'),
-      loading: function loading() {
-        return <h1>loading</h1>
-      },
-    }),
-  }
-}
+// export const createPost = function createPost(page) {
+//   return {
+//     path: page.path + '/:id',
+//     posts: page.posts,
+//     exact: false,
+//     component: Loadable({
+//       loader: () => import('@/components/Post'),
+//       loading: function loading() {
+//         return <h1>loading</h1>
+//       },
+//     }),
+//   }
+// }

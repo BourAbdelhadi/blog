@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Md2React from '@/components/Md2React'
+import Md2React from '@/components/md2React'
 
 const Intro = styled.div`text-align: center;`
 
