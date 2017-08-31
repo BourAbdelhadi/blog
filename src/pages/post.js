@@ -1,8 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import qs from 'query-string'
+import styled from 'styled-components'
 import frontMatter from 'front-matter'
-import MD2React from '@/components/md2React'
+import 'github-markdown-css'
+
+import { format } from '@/utils/util'
+import md2react from '@/utils/md2react'
+
+const StyledPost = styled.div.attrs({
+  className: 'markdown-body',
+})`
+  font-size: 14px;
+  padding: 20px;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+`
+const Title = styled.h1``
+const PostDate = styled.small``
+
+const PostBody = styled.div``
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -27,12 +45,14 @@ export default class Post extends React.Component {
     }
 
     return (
-      <div>
-        <h1>
+      <StyledPost>
+        <Title>
           {post.title}
-        </h1>
-        <MD2React content={post.body} />
-      </div>
+        </Title>
+        <PostBody>
+          {md2react(post.body).tree}
+        </PostBody>
+      </StyledPost>
     )
   }
 }
