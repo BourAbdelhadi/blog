@@ -1,21 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Flex } from 'grid-styled'
 
 import AppNavs from '@/components/layout/appNavs'
-import md2react from '@/utils/md2react'
+import PageView from '@/styled/pageView'
 
-const Intro = styled.div`text-align: center;`
+const Content = styled(Flex)`
+  flex: 1;
+`
+const Text = styled.h2`
+  color: ${props => props.theme.color.active};
+  text-transform: capitalize;
+`
 
 export default function Home({ page }) {
-  const [post] = page.posts
   return (
-    <div>
+    <PageView>
       <AppNavs />
-      <Intro>
-        {/* {md2react(post.body)} */}
-      </Intro>
-    </div>
+      <Content justify="center" align="center">
+        <Text> This is my house. </Text>
+      </Content>
+    </PageView>
   )
 }
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'grid-styled'
 
+import Social from '@/components/social'
 import { activeNavClassName, NavItem } from '@/styled/navItem'
 import hamburgerIcon from '@/assets/images/hamburger.svg'
 import closeIcon from '@/assets/images/close.svg'
@@ -17,10 +18,10 @@ const BurberIcon = styled.img`
     opacity: 0;
   }
 `
-const Title = styled.h2`
-  font-size: 1.3em;
+const Title = styled.h3`
   margin: 0;
   margin-left: 10px;
+  flex: 1;
 `
 
 const Header = styled(Flex)`
@@ -101,6 +102,8 @@ export default class BurgerNav extends React.Component {
           <Title>
             {matchedRoute ? matchedRoute.text : ''}
           </Title>
+
+          <Social />
         </Header>
 
         <Overlay onClick={() => this.toggle()} />
