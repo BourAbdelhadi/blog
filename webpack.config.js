@@ -79,7 +79,8 @@ const developmentConfig = {
     stats: 'errors-only',
 
     // 0.0.0.0 is available to all network devices
-    host: process.env.HOST, // Defaults to `localhost`
+    host: '0.0.0.0', // Defaults to `localhost`
+    disableHostCheck: true,
     port: process.env.PORT, // Defaults to 8080
 
     hotOnly: true,
