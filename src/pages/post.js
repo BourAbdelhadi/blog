@@ -5,22 +5,18 @@ import styled from 'styled-components'
 import frontMatter from 'front-matter'
 import 'github-markdown-css'
 
-import { format } from '@/utils/util'
 import md2react from '@/utils/md2react'
+import { px2vw, px2vh } from '@/styled/helpers'
 
 const StyledPost = styled.div.attrs({
   className: 'markdown-body',
 })`
-  font-size: 14px;
-  padding: 20px;
-  min-width: 200px;
-  max-width: 980px;
-  margin: 0 auto;
+  padding: ${px2vh(20)} ${px2vw(28)};
+  font-size: inherit !important;
 `
 const Title = styled.h1``
-const PostDate = styled.small``
 
-const PostBody = styled.div``
+const PostBody = styled.article``
 
 export default class Post extends React.Component {
   constructor(props) {

@@ -8,8 +8,8 @@ import hamburgerIcon from '@/assets/images/hamburger.svg'
 import closeIcon from '@/assets/images/close.svg'
 
 const BurberIcon = styled.img`
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
   opacity: 1;
   transition: all .2s ease-in-out;
 
@@ -17,7 +17,11 @@ const BurberIcon = styled.img`
     opacity: 0;
   }
 `
-const Title = styled.span`margin-left: 10px;`
+const Title = styled.h2`
+  font-size: 1.3em;
+  margin: 0;
+  margin-left: 10px;
+`
 
 const Header = styled(Flex)`
   background: ${props => props.theme.color.bgDark};
@@ -25,17 +29,17 @@ const Header = styled(Flex)`
 `
 
 const CloseBtn = styled.img`
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
   transform: scale(1.2);
   margin-right: 10px;
   margin-left: auto;
 `
 
 const NavList = styled(Flex)`
-  overflow: scroll;
   background: #fff;
   padding: 10px 0;
+  overflow: scroll;
 
   position: fixed;
   height: 100%;

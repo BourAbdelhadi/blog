@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom'
 
 import { format } from '@/utils/util'
 
-const Title = styled.h4`
+const Title = styled.h3`
   margin: 0;
-  font-size: 1rem;
   color: ${props => props.theme.color.base};
 `
 
@@ -17,11 +16,11 @@ const Contributor = styled.div``
 
 const Entry = styled(Link)`
   display: block;
+  cursor: pointer;
   text-decoration: none;
+  line-height: 1.5;
   padding: ${props => props.theme.gutter};
   border-bottom: 1px solid ${props => props.theme.color.border};
-  line-height: 1.5;
-  font-size: .8rem;
   color: ${props => props.theme.color.baseLight};
 `
 
