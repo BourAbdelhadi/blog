@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { HIGHLIGHT_LANGUAGE } = require('./src/utils/hightlight.trim')
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
@@ -99,6 +100,11 @@ const productionConfig = function() {
     }),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.HashedModuleIdsPlugin(),
+
+    new webpack.ContextReplacementPlugin(
+      /highlight\.js\/lib\/languages$/,
+      new RegExp(`^./(${HIGHLIGHT_LANGUAGE.join('|')})$`)
+    ),
 
     new webpack.optimize.CommonsChunkPlugin({
       async: 'used-twice',

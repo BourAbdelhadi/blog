@@ -61,6 +61,7 @@
     "front-matter": "^2.1.2",
     "github-markdown-css": "^2.8.0",
     "grid-styled": "^2.0.0-10",
+    "highlight.js": "^9.12.0",
     "marksy": "^5.0.0",
     "polished": "^1.4.0",
     "prop-types": "^15.5.10",
