@@ -23,8 +23,6 @@ injectGlobal`
 `
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
   color: ${props => props.theme.color.base};
   font-family: ${props => props.theme.font.familySans};
 `

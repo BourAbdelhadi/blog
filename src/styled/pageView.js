@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export default styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
   min-height: 100vh;
+  max-width: 980px;
+  margin: 0 auto;
 `

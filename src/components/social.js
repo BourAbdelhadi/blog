@@ -19,15 +19,18 @@ const Icon = styled.img`
   width: 100%;
   height: 100%;
 `
+const SocialList = styled(Flex)`
+  margin-left: auto;  
+`
 
 export default function Social() {
   return (
-    <Flex align="center">
+    <SocialList align="center">
       {socials.map((social, i) =>
         <Anchor key={i} href={`https://${social.name}.com/${social.username}`}>
           <Icon src={getIcon(social.name)} alt={social.name} />
         </Anchor>
       )}
-    </Flex>
+    </SocialList>
   )
 }

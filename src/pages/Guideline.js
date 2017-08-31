@@ -3,15 +3,16 @@ import propTypes from 'prop-types'
 
 import AppNavs from '@/components/layout/appNavs'
 import PostEntry from '@/components/postEntry'
+import PageView from '@/styled/pageView'
 
 export default function Guideline({ page }) {
   const { posts } = page
 
   return (
-    <div>
+    <PageView>
       <AppNavs />
       {posts.map((post, i) => <PostEntry key={i} post={post} />)}
-    </div>
+    </PageView>
   )
 }
 

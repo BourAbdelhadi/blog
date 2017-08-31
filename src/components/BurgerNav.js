@@ -2,26 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'grid-styled'
+import media from 'styled-media-query'
 
 import Social from '@/components/social'
 import { activeNavClassName, NavItem } from '@/styled/navItem'
 import hamburgerIcon from '@/assets/images/hamburger.svg'
 import closeIcon from '@/assets/images/close.svg'
 
+const hideNotInMobile = media.greaterThan('small')`
+  display: none;
+`
 const BurberIcon = styled.img`
   width: 1em;
   height: 1em;
   opacity: 1;
   transition: all .2s ease-in-out;
+  cursor: pointer;
 
   ${Aside} [data-toggle=true] & {
     opacity: 0;
   }
+  ${hideNotInMobile};
 `
 const Title = styled.h3`
   margin: 0;
   margin-left: 10px;
-  flex: 1;
+  ${hideNotInMobile};
 `
 
 const Header = styled(Flex)`
@@ -35,6 +41,13 @@ const CloseBtn = styled.img`
   transform: scale(1.2);
   margin-right: 10px;
   margin-left: auto;
+  ${hideNotInMobile};
+`
+const NavsInHeader = styled.div`
+  display: none;
+  ${media.greaterThan('small')`
+    display: block;
+  `};
 `
 
 const NavList = styled(Flex)`
@@ -43,6 +56,7 @@ const NavList = styled(Flex)`
   overflow: scroll;
 
   position: fixed;
+  top: 0;
   height: 100%;
   transform: translate(-100%);
 
@@ -54,6 +68,7 @@ const NavList = styled(Flex)`
     transform: translate(0);
     opacity: 1;
   }
+  ${hideNotInMobile};
 `
 
 const Overlay = styled.div`
@@ -91,6 +106,17 @@ export default class BurgerNav extends React.Component {
     const { location, routes } = this.props
     const matchedRoute = routes.find(r => r.path === location.pathname)
 
+    const navs = this.props.routes.map((item, i) =>
+      <NavItem
+        onClick={() => this.toggle()}
+        exact={true}
+        key={i}
+        to={item.path}
+        activeClassName={activeNavClassName}>
+        {item.text}
+      </NavItem>
+    )
+
     return (
       <Aside direction="column" data-toggle={this.state.isToggleOn}>
         <Header align="center">
@@ -102,7 +128,9 @@ export default class BurgerNav extends React.Component {
           <Title>
             {matchedRoute ? matchedRoute.text : ''}
           </Title>
-
+          <NavsInHeader>
+            {navs}
+          </NavsInHeader>
           <Social />
         </Header>
 
@@ -114,17 +142,7 @@ export default class BurgerNav extends React.Component {
             alt="点击关闭按钮"
             onClick={() => this.toggle()}
           />
-
-          {this.props.routes.map((item, i) =>
-            <NavItem
-              onClick={() => this.toggle()}
-              exact={true}
-              key={i}
-              to={item.path}
-              activeClassName={activeNavClassName}>
-              {item.text}
-            </NavItem>
-          )}
+          {navs}
         </NavList>
       </Aside>
     )

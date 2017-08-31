@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import media from 'styled-media-query'
 
 export const activeNavClassName = 'mine-nav-active'
 
@@ -13,4 +14,8 @@ export const NavItem = styled(NavLink)`
   &.${activeNavClassName} {
     color: ${props => props.theme.color.active};
   }
+
+  ${media.greaterThan('small')`
+    border-bottom: none;
+  `};
 `
