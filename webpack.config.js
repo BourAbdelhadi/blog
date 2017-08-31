@@ -69,6 +69,7 @@ const commonConfig = {
 }
 
 const developmentConfig = {
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     // open: true,
     historyApiFallback: true,
@@ -89,10 +90,45 @@ const developmentConfig = {
 }
 
 const productionConfig = function() {
-  const plugins = [isReport && new BundleAnalyzerPlugin()].filter(p => p)
+  const plugins = [
+    isReport && new BundleAnalyzerPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      async: 'used-twice',
+      minChunks: (module, count) => count >= 2,
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: ({ resource }) =>
+        resource &&
+        resource.indexOf('node_modules') >= 0 &&
+        resource.match(/\.js$/),
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime',
+    }),
+  ].filter(p => p)
 
   return {
     plugins,
+    devtool: 'source-map',
+    output: {
+      filename: '[name].[chunkhash].js',
+      chunkFilename: '[name].[chunkhash].js',
+    },
+    performance: {
+      hints: 'warning', // 'error' or false are valid too
+      maxEntrypointSize: 100000, // in bytes
+      maxAssetSize: 450000, // in bytes
+    },
   }
 }
 
