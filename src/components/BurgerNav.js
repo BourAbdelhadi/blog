@@ -14,8 +14,8 @@ const hideNotInMobile = media.greaterThan('small')`
   display: none;
 `
 const BurberIcon = styled.img`
-  width: 1em;
-  height: 1em;
+  width: 1.2em;
+  height: 1.2em;
   opacity: 1;
   transition: all .2s ease-in-out;
   cursor: pointer;
@@ -34,6 +34,12 @@ const Title = styled.h4`
 const Header = styled(Flex)`
   background: ${props => props.theme.color.bgDark};
   padding: ${px2vh(20)} ${px2vw(20)};
+
+  ${media.greaterThan('small')`
+    background: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+  `}
 `
 
 const CloseBtn = styled.img`
@@ -125,7 +131,7 @@ export default class BurgerNav extends React.Component {
             alt="菜单"
             onClick={() => this.toggle()}
           />
-          <Title>
+          <Title onClick={() => this.toggle()}>
             {matchedRoute ? matchedRoute.text : ''}
           </Title>
           <NavsInHeader>
