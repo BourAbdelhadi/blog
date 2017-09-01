@@ -6,6 +6,7 @@ import Loadable from 'react-loadable'
 
 import { pages } from '../../utils/preval'
 import NotFound from '@/pages/404'
+import Loading from '@/components/loading'
 
 const routes = pages.map(function createRoute(page) {
   const isIndex = page.path === '/index'
@@ -14,9 +15,7 @@ const routes = pages.map(function createRoute(page) {
     exact: true,
     component: Loadable({
       loader: () => import(`@/pages${page.path}`),
-      loading: function loading() {
-        return <h1>loading</h1>
-      },
+      loading: Loading,
     }),
     page,
   }
