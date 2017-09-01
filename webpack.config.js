@@ -45,17 +45,11 @@ const commonConfig = {
         test: /\.md$/,
         use: 'raw-loader',
       },
-      // {
-      //   test: /\.(jpg|png|svg)$/,
-      //   loader: 'url-loader',
-      //   options: {
-      //     limit: 10,
-      //   },
-      // },
       {
         test: /\.(jpg|png|svg)$/,
-        loader: 'file-loader',
+        loader: 'url-loader',
         options: {
+          limit: 10 * 1024,
           name: '[name].[hash].[ext]',
         },
       },
