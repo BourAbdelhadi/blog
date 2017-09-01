@@ -25,7 +25,7 @@ const BurberIcon = styled.img`
   }
   ${hideNotInMobile};
 `
-const Title = styled.h3`
+const Title = styled.h4`
   margin: 0;
   margin-left: 10px;
   ${hideNotInMobile};

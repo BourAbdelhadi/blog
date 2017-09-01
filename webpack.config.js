@@ -27,6 +27,7 @@ const commonConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html',
+      favicon: 'favicon.ico',
     }),
   ],
   module: {
