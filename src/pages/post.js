@@ -7,6 +7,8 @@ import 'github-markdown-css'
 
 import md2react from '@/utils/md2react'
 import { px2vw, px2vh } from '@/styled/helpers'
+import PageView from '@/styled/pageView'
+import Loading from '@/components/loading'
 
 const StyledPost = styled.div.attrs({
   className: 'markdown-body',
@@ -37,18 +39,24 @@ export default class Post extends React.Component {
     const { post } = this.state
 
     if (!post) {
-      return <div> loading </div>
+      return (
+        <PageView>
+          <Loading />
+        </PageView>
+      )
     }
 
     return (
-      <StyledPost>
-        <Title>
-          {post.title}
-        </Title>
-        <PostBody>
-          {md2react(post.body).tree}
-        </PostBody>
-      </StyledPost>
+      <PageView>
+        <StyledPost>
+          <Title>
+            {post.title}
+          </Title>
+          <PostBody>
+            {md2react(post.body).tree}
+          </PostBody>
+        </StyledPost>
+      </PageView>
     )
   }
 }
