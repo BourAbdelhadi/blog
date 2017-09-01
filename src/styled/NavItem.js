@@ -17,5 +17,8 @@ export const NavItem = styled(NavLink)`
 
   ${media.greaterThan('small')`
     border-bottom: none;
+    &:first-child {
+      padding-left: 0;
+    }
   `};
 `

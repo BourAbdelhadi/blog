@@ -8,6 +8,7 @@ import Social from '@/components/social'
 import { activeNavClassName, NavItem } from '@/styled/navItem'
 import hamburgerIcon from '@/assets/images/hamburger.svg'
 import closeIcon from '@/assets/images/close.svg'
+import { px2vw, px2vh } from '@/styled/helpers'
 
 const hideNotInMobile = media.greaterThan('small')`
   display: none;
@@ -32,13 +33,12 @@ const Title = styled.h3`
 
 const Header = styled(Flex)`
   background: ${props => props.theme.color.bgDark};
-  padding: ${props => props.theme.gutterLarge} ${props => props.theme.gutter};
+  padding: ${px2vh(20)} ${px2vw(20)};
 `
 
 const CloseBtn = styled.img`
   width: 1em;
   height: 1em;
-  transform: scale(1.2);
   margin-right: 10px;
   margin-left: auto;
   ${hideNotInMobile};

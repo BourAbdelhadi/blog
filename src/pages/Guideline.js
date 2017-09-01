@@ -9,7 +9,7 @@ export default function Guideline({ page }) {
   const { posts } = page
 
   return (
-    <PageView>
+    <PageView direction="column">
       <AppNavs />
       {posts.map((post, i) => <PostEntry key={i} post={post} />)}
     </PageView>

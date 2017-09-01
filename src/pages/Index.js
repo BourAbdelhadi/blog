@@ -16,7 +16,7 @@ const Text = styled.h2`
 
 export default function Home({ page }) {
   return (
-    <PageView>
+    <PageView direction="column">
       <AppNavs />
       <Content justify="center" align="center">
         <Text> This is my house. </Text>
