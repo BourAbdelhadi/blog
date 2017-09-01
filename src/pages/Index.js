@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Flex } from 'grid-styled'
 
 import AppNavs from '@/components/layout/appNavs'
+import AppFooter from '@/components/layout/appFooter'
 import PageView from '@/styled/pageView'
 
 const Content = styled(Flex)`
@@ -21,6 +22,7 @@ export default function Home({ page }) {
       <Content justify="center" align="center">
         <Text> This is my house. </Text>
       </Content>
+      <AppFooter />
     </PageView>
   )
 }
