@@ -1,2 +1,2 @@
-# Mine
-😘 biu biu biu ~ 
+# Blog
+😘 biu biu biu -> http://lyyourc.com/
