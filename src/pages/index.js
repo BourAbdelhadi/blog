@@ -7,9 +7,7 @@ import AppNavs from '@/components/layout/appNavs'
 import AppFooter from '@/components/layout/appFooter'
 import PageView from '@/styled/pageView'
 
-const Content = styled(Flex)`
-  flex: 1;
-`
+const Content = styled(Flex)`flex: 1;`
 const Text = styled.h2`
   color: ${props => props.theme.color.active};
   text-transform: capitalize;

@@ -27,15 +27,9 @@ const Entry = styled(Link)`
 export default function PostEntry({ post }) {
   return (
     <Entry to={`/post?path=${post.path}`}>
-      <Title>
-        {post.title}
-      </Title>
-      <UpdateDate>
-        Wrote: {format(post.date)}
-      </UpdateDate>
-      <Contributor>
-        {/* By: {post.contributor} */}
-      </Contributor>
+      <Title>{post.title}</Title>
+      <UpdateDate>Wrote: {format(post.date)}</UpdateDate>
+      <Contributor>{/* By: {post.contributor} */}</Contributor>
     </Entry>
   )
 }

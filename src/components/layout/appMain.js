@@ -21,7 +21,7 @@ const routes = pages.map(function createRoute(page) {
   }
 })
 
-const RouteWrapper = ({ component: Component, ...rest }) =>
+const RouteWrapper = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props => {
@@ -29,6 +29,7 @@ const RouteWrapper = ({ component: Component, ...rest }) =>
       return <Component {...allProps} />
     }}
   />
+)
 
 const Main = styled.main``
 

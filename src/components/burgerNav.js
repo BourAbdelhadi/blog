@@ -17,7 +17,7 @@ const BurberIcon = styled.img`
   width: 1.2em;
   height: 1.2em;
   opacity: 1;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 
   ${Aside} [data-toggle=true] & {
@@ -39,7 +39,7 @@ const Header = styled(Flex)`
     background: transparent;
     padding-left: 10px;
     padding-right: 10px;
-  `}
+  `};
 `
 
 const CloseBtn = styled.img`
@@ -67,9 +67,9 @@ const NavList = styled(Flex)`
   transform: translate(-100%);
 
   opacity: 0;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-  ${Aside}[data-toggle=true] & {
+  ${Aside} [data-toggle=true] & {
     width: 80%;
     transform: translate(0);
     opacity: 1;
@@ -78,7 +78,7 @@ const NavList = styled(Flex)`
 `
 
 const Overlay = styled.div`
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0;
   left: 0;
@@ -112,7 +112,7 @@ export default class BurgerNav extends React.Component {
     const { location, routes } = this.props
     const matchedRoute = routes.find(r => r.path === location.pathname)
 
-    const navs = this.props.routes.map((item, i) =>
+    const navs = this.props.routes.map((item, i) => (
       <NavItem
         onClick={() => this.toggle()}
         exact={true}
@@ -121,7 +121,7 @@ export default class BurgerNav extends React.Component {
         activeClassName={activeNavClassName}>
         {item.text}
       </NavItem>
-    )
+    ))
 
     return (
       <Aside direction="column" data-toggle={this.state.isToggleOn}>
@@ -134,9 +134,7 @@ export default class BurgerNav extends React.Component {
           <Title onClick={() => this.toggle()}>
             {matchedRoute ? matchedRoute.text : ''}
           </Title>
-          <NavsInHeader>
-            {navs}
-          </NavsInHeader>
+          <NavsInHeader>{navs}</NavsInHeader>
           <Social />
         </Header>
 
