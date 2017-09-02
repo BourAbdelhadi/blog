@@ -18,8 +18,6 @@ const StyledPost = styled.div.attrs({
 `
 const Title = styled.h1``
 
-const PostBody = styled.article``
-
 export default class Post extends React.Component {
   constructor(props) {
     super(props)
@@ -52,9 +50,7 @@ export default class Post extends React.Component {
           <Title>
             {post.title}
           </Title>
-          <PostBody>
-            {md2react(post.body).tree}
-          </PostBody>
+          {md2react(post.body).tree}
         </StyledPost>
       </PageView>
     )
