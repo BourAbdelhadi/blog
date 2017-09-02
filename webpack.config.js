@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { HIGHLIGHT_LANGUAGE } = require('./src/utils/hightlight.trim')
 
 const PATHS = {
@@ -89,6 +90,8 @@ const developmentConfig = {
 const productionConfig = function() {
   const plugins = [
     isReport && new BundleAnalyzerPlugin(),
+    new CopyWebpackPlugin([{ from: './static/' }]),
+
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),

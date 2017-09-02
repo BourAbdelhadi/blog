@@ -12,7 +12,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "precommit": "lint-staged",
-    "deploy": "npm run build && surge -p ./dist -d lyyourc.surge.sh"
+    "deploy": "npm run build && surge -p ./dist"
   },
   "lint-staged": {
     "*.js": [
@@ -38,6 +38,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.5",
     "eslint": "^4.4.1",
     "eslint-config-prettier": "^2.3.0",
