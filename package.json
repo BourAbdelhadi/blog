@@ -12,7 +12,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "precommit": "lint-staged",
-    "deploy": "npm run build && surge -p ./dist"
+    "deploy": "npm i && npm run build"
   },
   "lint-staged": {
     "*.js": [
