@@ -31,7 +31,7 @@ export default function PostEntry({ post }) {
         {post.title}
       </Title>
       <UpdateDate>
-        Updated: {format(post.date)}
+        Wrote: {format(post.date)}
       </UpdateDate>
       <Contributor>
         {/* By: {post.contributor} */}

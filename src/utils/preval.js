@@ -25,13 +25,15 @@ function getPosts(part) {
 
   if (!fs.existsSync(postPath)) return []
 
-  return readdirSync(postPath).map(file => {
-    const filePath = path.join(postPath, file)
-    const { attributes } = fm(readFileSync(filePath, 'utf-8'))
+  return readdirSync(postPath)
+    .map(file => {
+      const filePath = path.join(postPath, file)
+      const { attributes } = fm(readFileSync(filePath, 'utf-8'))
 
-    return {
-      path: `/${part}/${file}`,
-      ...attributes,
-    }
-  })
+      return {
+        path: `/${part}/${file}`,
+        ...attributes,
+      }
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
 }
